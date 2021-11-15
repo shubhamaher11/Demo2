@@ -6,7 +6,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "first4-bucket" {
   
-  bucket = "shubhamaher1234567890"
+  bucket = "shubhamaher0123"
   acl = "public-read"
 
   versioning {
