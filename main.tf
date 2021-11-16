@@ -6,11 +6,15 @@ provider "aws" {
 
 resource "aws_s3_bucket" "first4-bucket" {
   
-  bucket = "shubhamaher01234"
+  bucket = "${var.name}"
   acl = "public-read"
 
   versioning {
     enabled = true
   }
 
+}
+variable "name"{
+  description = "Bucket name"
+  type = string
 }
