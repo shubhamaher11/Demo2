@@ -11,7 +11,7 @@ pipeline{
         }
         stage('Terraform apply'){
             steps{
-                bat 'terraform apply -var="name=${bucket}" --auto-approve'
+                bat 'terraform apply -var="name=${params.bucket}" --auto-approve'
             }
         }
     }
