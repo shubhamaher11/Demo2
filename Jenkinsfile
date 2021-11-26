@@ -5,13 +5,7 @@ pipeline{
     }
     stages{
         
-        stage('Terraform remove state'){
-            steps{
-                if (fileExists(".terraform/terraform.tfstate")) {
-                    sh "rm -rf .terraform/terraform.tfstate"
-                }
-            }
-        }
+        
         
         stage('Terraform init'){
             steps{
@@ -19,6 +13,13 @@ pipeline{
             }
         }
         
+        stage('Terraform remove state'){
+            steps{
+                if (fileExists(".terraform/terraform.tfstate")) {
+                    sh "rm -rf .terraform/terraform.tfstate"
+                }
+            }
+        }
         stage('Terraform apply'){
             steps{
                 sh 'terraform apply -var="name=${bucket}" --auto-approve'
