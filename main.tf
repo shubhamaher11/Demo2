@@ -4,7 +4,7 @@ provider "aws" {
   secret_key = "Glz/z6JFhL6OBLVqQAusanXhYXsbkNA2Q5nFWAio"
 }
 
-resource "aws_s3_bucket" "first5-bucket" {
+resource "aws_s3_bucket" "first5" {
   
   bucket = "${var.name}"
   acl = "public-read"
