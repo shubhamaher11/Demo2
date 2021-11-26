@@ -4,17 +4,6 @@ pipeline{
         terraform 'terraform-11'
     }
     stages{
-        
-        stage('LS'){
-            steps{
-                touch file:'${bucket}.tf'
-            }
-        }
-        stage('LS'){
-            steps{
-                sh 'ls'
-            }
-        }
         stage('Terraform init'){
             steps{
                 sh 'terraform init'
