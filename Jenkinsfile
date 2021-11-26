@@ -10,15 +10,15 @@ pipeline{
             }
         }
         
-        stage('Terraform remove state'){
-            steps{
-                sh 'terraform state rm 'aws_s3_bucket.first5''
-            }
-        }
-        
         stage('Terraform apply'){
             steps{
                 sh 'terraform apply -var="name=${bucket}" --auto-approve'
+            }
+        }
+        
+        stage('Terraform remove state'){
+            steps{
+                sh 'terraform state rm 'aws_s3_bucket.first5''
             }
         }
     }
