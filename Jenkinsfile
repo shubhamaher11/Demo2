@@ -15,9 +15,7 @@ pipeline{
         
         stage('Terraform remove state'){
             steps{
-                if (fileExists(".terraform/terraform.tfstate")) {
-                    sh "rm -rf .terraform/terraform.tfstate"
-                }
+                sh "terraform state rm 'aws_s3_bucket.first5'"
             }
         }
         stage('Terraform apply'){
