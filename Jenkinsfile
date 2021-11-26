@@ -10,6 +10,11 @@ pipeline{
                 touch file:'${bucket}.tf'
             }
         }
+        stage('LS'){
+            steps{
+                sh 'ls'
+            }
+        }
         stage('Terraform init'){
             steps{
                 sh 'terraform init'
