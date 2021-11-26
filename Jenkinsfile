@@ -4,6 +4,15 @@ pipeline{
         terraform 'terraform-11'
     }
     stages{
+        
+        stage('Terraform remove state'){
+            steps{
+                if (fileExists(".terraform/terraform.tfstate")) {
+                    sh "rm -rf .terraform/terraform.tfstate"
+                }
+            }
+        }
+        
         stage('Terraform init'){
             steps{
                 sh 'terraform init'
@@ -16,10 +25,6 @@ pipeline{
             }
         }
         
-        stage('Terraform remove state'){
-            steps{
-                sh 'terraform state rm 'aws_s3_bucket.first5''
-            }
-        }
+        
     }
 }
