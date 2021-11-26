@@ -15,7 +15,7 @@ pipeline{
         
         stage('Terraform remove state'){
             steps{
-                sh "terraform state rm 'aws_s3_bucket.first5'"
+                sh 'terraform state rm "aws_s3_bucket.first5"'
             }
         }
         stage('Terraform apply'){
