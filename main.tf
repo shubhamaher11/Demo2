@@ -13,6 +13,10 @@ resource "aws_s3_bucket" "first5-bucket" {
     enabled = true
   }
 
+  lifecycle {
+    prevent_destroy = true
+  }
+
 }
 variable "name"{
   description = "Bucket name"
