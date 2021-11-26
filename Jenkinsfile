@@ -9,6 +9,13 @@ pipeline{
                 sh 'terraform init'
             }
         }
+        
+        stage('Terraform remove state'){
+            steps{
+                sh 'terraform state rm 'aws_s3_bucket.Thir-bucket''
+            }
+        }
+        
         stage('Terraform apply'){
             steps{
                 sh 'terraform apply -var="name=${bucket}" --auto-approve'
