@@ -13,7 +13,10 @@ pipeline{
         
         stage('Terraform apply'){
             steps{
-                bat 'terraform apply -var="name=%bucket%" --auto-approve'
+                def props = readJSON text: '{ "bucket": "value" }' 
+                assert props['bucket'] == 'value' 
+                assert props.bucket == 'value'
+                bat 'terraform apply -var="name=%props.bucket%" --auto-approve'
             }
         }
         
