@@ -16,7 +16,11 @@ pipeline{
                 bat 'terraform apply -var="name=%bucket%" --auto-approve'
             }
         }
-        
+        stage('Terraform show'){
+            steps{
+                bat 'terraform show state > test.tfstate'
+            }
+        }
         
     }
 }
