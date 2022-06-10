@@ -16,9 +16,9 @@ pipeline{
                 bat 'terraform apply -var="name=%bucket%" --auto-approve'
             }
         }
-        stage('Terraform show'){
+        stage('Terraform State'){
             steps{
-                bat 'terraform show state > test.tfstate'
+                bat 'terraform rm "aws_s3_bucket.first5'
             }
         }
         
