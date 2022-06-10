@@ -18,7 +18,7 @@ pipeline{
         }
         stage('Terraform State'){
             steps{
-                bat 'terraform rm "aws_s3_bucket.first5"'
+                bat 'terraform state rm "aws_s3_bucket.first5"'
             }
         }
         
